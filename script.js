@@ -228,6 +228,8 @@ let currentAccount, timer;
 // containerApp.style.css.opacity = 100;
 
 //date month year
+const header = document.querySelector('.header');
+const inter_msg = document.querySelector('.inter-msg');
 btnLogin.addEventListener('click', e => {
   e.preventDefault();
   currentAccount = accounts.find(
@@ -242,6 +244,8 @@ btnLogin.addEventListener('click', e => {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+    header.style.display = 'none';
+    inter_msg.style.display = 'none';
     //display date
     const now = new Date();
     const option = {
@@ -341,6 +345,8 @@ btnClose.addEventListener('click', e => {
     accounts.splice(index, 1);
     //hide ui deleted acc
     containerApp.style.opacity = 0;
+    header.style.display = 'flex';
+    inter_msg.style.display = 'block';
     //clear input fields
     inputCloseUsername.value = '';
     inputClosePin.value = '';
